@@ -1,0 +1,12 @@
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisReglas.dll
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisReglas.pdb
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisReglas.xml
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisDatos.dll
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisDatos.pdb
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\bin\Debug\SisDatos.xml
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\ResolveAssemblyReference.cache
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\SisReglas.Resources.resources
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\SisReglas.vbproj.GenerateResource.Cache
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\SisReglas.dll
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\SisReglas.xml
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisReglas\obj\Debug\SisReglas.pdb

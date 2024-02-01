@@ -1,0 +1,589 @@
+/*
+ * ER/Studio 8.0 SQL Code Generation
+ * Company :      Tel&Soft Comunicaciones
+ * Project :      DB_INV_MUDIAR.dm1
+ * Author :       Fabian
+ *
+ * Date Created : Sunday, December 13, 2009 09:12:45
+ * Target DBMS : Microsoft SQL Server 2005
+ */
+
+/* 
+ * TABLE: T_ACTO_AFECTACION 
+ */
+
+CREATE TABLE T_ACTO_AFECTACION(
+    COD_ACTO_AFEC    char(10)        NOT NULL,
+    COD_BIEN         char(12)        NOT NULL,
+    EST_AFEC         char(1)         NULL,
+    RES_AFEC         varchar(25)     NULL,
+    FEC_AFEC         datetime        NULL,
+    FEC_VEN_AFEC     datetime        NULL,
+    ENT_AFEC         varchar(100)    NULL,
+    RES_ARRE         varchar(25)     NULL,
+    FEC_ARRE         datetime        NULL,
+    FEC_VEN_ARRE     datetime        NULL,
+    ENT_ARRE         varchar(100)    NULL,
+    CONSTRAINT PK16 PRIMARY KEY CLUSTERED (COD_ACTO_AFEC)
+)
+go
+
+
+
+IF OBJECT_ID('T_ACTO_AFECTACION') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_ACTO_AFECTACION >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_ACTO_AFECTACION >>>'
+go
+
+/* 
+ * TABLE: T_ACTO_DISPOSICION 
+ */
+
+CREATE TABLE T_ACTO_DISPOSICION(
+    COD_ACTO_DIS    char(10)       NOT NULL,
+    COD_BAJA        char(10)       NOT NULL,
+    RES_DISP        varchar(40)    NULL,
+    FEC_RES_DIS     datetime       NULL,
+    ACTO_DIS        char(1)        NULL,
+    CONSTRAINT PK15 PRIMARY KEY CLUSTERED (COD_ACTO_DIS)
+)
+go
+
+
+
+IF OBJECT_ID('T_ACTO_DISPOSICION') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_ACTO_DISPOSICION >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_ACTO_DISPOSICION >>>'
+go
+
+/* 
+ * TABLE: T_AREA 
+ */
+
+CREATE TABLE T_AREA(
+    COD_AREA     char(5)        NOT NULL,
+    SIGLAS       varchar(5)     NULL,
+    NOM_AREA     varchar(50)    NOT NULL,
+    COD_LOCAL    char(5)        NOT NULL,
+    CONSTRAINT PK3 PRIMARY KEY CLUSTERED (COD_AREA)
+)
+go
+
+
+
+IF OBJECT_ID('T_AREA') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_AREA >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_AREA >>>'
+go
+
+/* 
+ * TABLE: T_BAJABIEN 
+ */
+
+CREATE TABLE T_BAJABIEN(
+    COD_BAJA           char(10)       NOT NULL,
+    COD_BIEN           char(12)       NOT NULL,
+    RESOL_BAJA         varchar(20)    NULL,
+    FEC_BAJA           datetime       NULL,
+    FLG_CAUSAL         char(1)        NULL,
+    DOC_OTRA_CAUSAL    varchar(25)    NULL,
+    CONSTRAINT PK14 PRIMARY KEY CLUSTERED (COD_BAJA)
+)
+go
+
+
+
+IF OBJECT_ID('T_BAJABIEN') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_BAJABIEN >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_BAJABIEN >>>'
+go
+
+/* 
+ * TABLE: T_BIEN 
+ */
+
+CREATE TABLE T_BIEN(
+    COD_BIEN         char(12)          NOT NULL,
+    COD_INTERNO      char(6)           NULL,
+    COD_EMP          char(8)           NOT NULL,
+    COD_CTA          char(12)          NOT NULL,
+    COD_TIPO_BIEN    char(8)           NOT NULL,
+    RES_ALTA         varchar(25)       NULL,
+    VALOR_LIBRO      decimal(10, 2)    NULL,
+    VALOR_TASA       decimal(10, 2)    NULL,
+    ESTADO           char(1)           NULL,
+    MARCA            varchar(20)       NULL,
+    MODELO           varchar(20)       NULL,
+    COLOR            varchar(20)       NULL,
+    SERIE            varchar(20)       NULL,
+    NUM_MOTOR        varchar(20)       NULL,
+    NUM_CHASIS       varchar(20)       NULL,
+    ANIO_FAB         char(4)           NULL,
+    PLACA            char(7)           NULL,
+    DIMENSION        varchar(15)       NULL,
+    OTROS            text              NULL,
+    FEC_ADQ_BIEN     datetime          NULL,
+    CONDICION        char(1)           NULL,
+    ASEGURADO        char(1)           NULL,
+    EST_ACTUAL       char(1)           NULL,
+    CONSTRAINT PK13 PRIMARY KEY CLUSTERED (COD_BIEN)
+)
+go
+
+
+
+IF OBJECT_ID('T_BIEN') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_BIEN >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_BIEN >>>'
+go
+
+/* 
+ * TABLE: T_BLOQUEO 
+ */
+
+CREATE TABLE T_BLOQUEO(
+    COD_BLOQUEO    char(10)    NOT NULL,
+    COD_BIEN       char(12)    NOT NULL,
+    CONSTRAINT PK11 PRIMARY KEY CLUSTERED (COD_BLOQUEO)
+)
+go
+
+
+
+IF OBJECT_ID('T_BLOQUEO') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_BLOQUEO >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_BLOQUEO >>>'
+go
+
+/* 
+ * TABLE: T_CLASE 
+ */
+
+CREATE TABLE T_CLASE(
+    COD_CLASE    char(2)        NOT NULL,
+    NOM_CLASE    varchar(30)    NOT NULL,
+    CONSTRAINT PK9 PRIMARY KEY CLUSTERED (COD_CLASE)
+)
+go
+
+
+
+IF OBJECT_ID('T_CLASE') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_CLASE >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_CLASE >>>'
+go
+
+/* 
+ * TABLE: T_CUENTA 
+ */
+
+CREATE TABLE T_CUENTA(
+    COD_CTA         char(12)        NOT NULL,
+    TIPO_CTA        char(1)         NULL,
+    NOM_CTA         varchar(150)    NULL,
+    FLG_CTA         char(1)         NULL,
+    TIPO_USO_CTA    char(1)         NULL,
+    CONSTRAINT PK7 PRIMARY KEY CLUSTERED (COD_CTA)
+)
+go
+
+
+
+IF OBJECT_ID('T_CUENTA') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_CUENTA >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_CUENTA >>>'
+go
+
+/* 
+ * TABLE: T_ENTIDAD 
+ */
+
+CREATE TABLE T_ENTIDAD(
+    COD_ENTIDAD    char(10)        NOT NULL,
+    NOM_ENTIDAD    varchar(100)    NULL,
+    DEPENDENCIA    varchar(100)    NULL,
+    CONSTRAINT PK1 PRIMARY KEY CLUSTERED (COD_ENTIDAD)
+)
+go
+
+
+
+IF OBJECT_ID('T_ENTIDAD') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_ENTIDAD >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_ENTIDAD >>>'
+go
+
+/* 
+ * TABLE: T_FUNCIONARIO 
+ */
+
+CREATE TABLE T_FUNCIONARIO(
+    COD_EMP        char(8)        NOT NULL,
+    NOM_EMP        varchar(80)    NULL,
+    COD_OFICINA    char(5)        NOT NULL,
+    CONSTRAINT PK6 PRIMARY KEY CLUSTERED (COD_EMP)
+)
+go
+
+
+
+IF OBJECT_ID('T_FUNCIONARIO') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_FUNCIONARIO >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_FUNCIONARIO >>>'
+go
+
+/* 
+ * TABLE: T_GRUPO 
+ */
+
+CREATE TABLE T_GRUPO(
+    COD_GRUPO    char(2)        NOT NULL,
+    NOM_GRUPO    varchar(40)    NULL,
+    CONSTRAINT PK8 PRIMARY KEY CLUSTERED (COD_GRUPO)
+)
+go
+
+
+
+IF OBJECT_ID('T_GRUPO') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_GRUPO >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_GRUPO >>>'
+go
+
+/* 
+ * TABLE: T_LOCAL 
+ */
+
+CREATE TABLE T_LOCAL(
+    COD_LOCAL        char(5)           NOT NULL,
+    NOM_LOCAL        varchar(50)       NULL,
+    DIR_LOCAL        char(10)          NULL,
+    COD_UBIGEO       char(6)           NOT NULL,
+    AREA_LOCAL       decimal(10, 2)    NULL,
+    FLG_PROPIEDAD    char(10)          NULL,
+    DSC_CTA_CTBLE    varchar(10)       NULL,
+    VALOR_LOCAL      decimal(10, 2)    NULL,
+    COD_ENTIDAD      char(10)          NOT NULL,
+    CONSTRAINT PK2 PRIMARY KEY CLUSTERED (COD_LOCAL)
+)
+go
+
+
+
+IF OBJECT_ID('T_LOCAL') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_LOCAL >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_LOCAL >>>'
+go
+
+/* 
+ * TABLE: T_OFICINA 
+ */
+
+CREATE TABLE T_OFICINA(
+    COD_OFICINA    char(5)     NOT NULL,
+    NOM_OFICINA    char(10)    NULL,
+    COD_AREA       char(5)     NOT NULL,
+    CONSTRAINT PK4 PRIMARY KEY CLUSTERED (COD_OFICINA)
+)
+go
+
+
+
+IF OBJECT_ID('T_OFICINA') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_OFICINA >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_OFICINA >>>'
+go
+
+/* 
+ * TABLE: T_TIPOBIEN 
+ */
+
+CREATE TABLE T_TIPOBIEN(
+    COD_TIPO_BIEN    char(8)        NOT NULL,
+    DESCRIPCION      varchar(60)    NULL,
+    CORRELATIVO      int            NULL,
+    TIPO             char(1)        NULL,
+    CONSTRAINT PK5 PRIMARY KEY CLUSTERED (COD_TIPO_BIEN)
+)
+go
+
+
+
+IF OBJECT_ID('T_TIPOBIEN') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_TIPOBIEN >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_TIPOBIEN >>>'
+go
+
+/* 
+ * TABLE: T_UBIGEO 
+ */
+
+CREATE TABLE T_UBIGEO(
+    COD_UBIGEO    char(6)        NOT NULL,
+    COD_DPTO      char(2)        NULL,
+    COD_PROV      char(2)        NULL,
+    COD_DIST      char(2)        NULL,
+    NOM_UBIGEO    varchar(40)    NULL,
+    CONSTRAINT PK10 PRIMARY KEY CLUSTERED (COD_UBIGEO)
+)
+go
+
+
+
+IF OBJECT_ID('T_UBIGEO') IS NOT NULL
+    PRINT '<<< CREATED TABLE T_UBIGEO >>>'
+ELSE
+    PRINT '<<< FAILED CREATING TABLE T_UBIGEO >>>'
+go
+
+/* 
+ * INDEX: Ref1319 
+ */
+
+CREATE INDEX Ref1319 ON T_ACTO_AFECTACION(COD_BIEN)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_ACTO_AFECTACION') AND name='Ref1319')
+    PRINT '<<< CREATED INDEX T_ACTO_AFECTACION.Ref1319 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_ACTO_AFECTACION.Ref1319 >>>'
+go
+
+/* 
+ * INDEX: Ref1418 
+ */
+
+CREATE INDEX Ref1418 ON T_ACTO_DISPOSICION(COD_BAJA)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_ACTO_DISPOSICION') AND name='Ref1418')
+    PRINT '<<< CREATED INDEX T_ACTO_DISPOSICION.Ref1418 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_ACTO_DISPOSICION.Ref1418 >>>'
+go
+
+/* 
+ * INDEX: Ref27 
+ */
+
+CREATE INDEX Ref27 ON T_AREA(COD_LOCAL)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_AREA') AND name='Ref27')
+    PRINT '<<< CREATED INDEX T_AREA.Ref27 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_AREA.Ref27 >>>'
+go
+
+/* 
+ * INDEX: Ref1315 
+ */
+
+CREATE INDEX Ref1315 ON T_BAJABIEN(COD_BIEN)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_BAJABIEN') AND name='Ref1315')
+    PRINT '<<< CREATED INDEX T_BAJABIEN.Ref1315 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_BAJABIEN.Ref1315 >>>'
+go
+
+/* 
+ * INDEX: Ref612 
+ */
+
+CREATE INDEX Ref612 ON T_BIEN(COD_EMP)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_BIEN') AND name='Ref612')
+    PRINT '<<< CREATED INDEX T_BIEN.Ref612 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_BIEN.Ref612 >>>'
+go
+
+/* 
+ * INDEX: Ref714 
+ */
+
+CREATE INDEX Ref714 ON T_BIEN(COD_CTA)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_BIEN') AND name='Ref714')
+    PRINT '<<< CREATED INDEX T_BIEN.Ref714 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_BIEN.Ref714 >>>'
+go
+
+/* 
+ * INDEX: Ref520 
+ */
+
+CREATE INDEX Ref520 ON T_BIEN(COD_TIPO_BIEN)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_BIEN') AND name='Ref520')
+    PRINT '<<< CREATED INDEX T_BIEN.Ref520 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_BIEN.Ref520 >>>'
+go
+
+/* 
+ * INDEX: Ref1317 
+ */
+
+CREATE INDEX Ref1317 ON T_BLOQUEO(COD_BIEN)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_BLOQUEO') AND name='Ref1317')
+    PRINT '<<< CREATED INDEX T_BLOQUEO.Ref1317 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_BLOQUEO.Ref1317 >>>'
+go
+
+/* 
+ * INDEX: Ref46 
+ */
+
+CREATE INDEX Ref46 ON T_FUNCIONARIO(COD_OFICINA)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_FUNCIONARIO') AND name='Ref46')
+    PRINT '<<< CREATED INDEX T_FUNCIONARIO.Ref46 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_FUNCIONARIO.Ref46 >>>'
+go
+
+/* 
+ * INDEX: Ref19 
+ */
+
+CREATE INDEX Ref19 ON T_LOCAL(COD_ENTIDAD)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_LOCAL') AND name='Ref19')
+    PRINT '<<< CREATED INDEX T_LOCAL.Ref19 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_LOCAL.Ref19 >>>'
+go
+
+/* 
+ * INDEX: Ref35 
+ */
+
+CREATE INDEX Ref35 ON T_OFICINA(COD_AREA)
+go
+IF EXISTS (SELECT * FROM sys.indexes WHERE object_id=OBJECT_ID('T_OFICINA') AND name='Ref35')
+    PRINT '<<< CREATED INDEX T_OFICINA.Ref35 >>>'
+ELSE
+    PRINT '<<< FAILED CREATING INDEX T_OFICINA.Ref35 >>>'
+go
+
+/* 
+ * TABLE: T_ACTO_AFECTACION 
+ */
+
+ALTER TABLE T_ACTO_AFECTACION ADD CONSTRAINT RefT_BIEN19 
+    FOREIGN KEY (COD_BIEN)
+    REFERENCES T_BIEN(COD_BIEN)
+go
+
+
+/* 
+ * TABLE: T_ACTO_DISPOSICION 
+ */
+
+ALTER TABLE T_ACTO_DISPOSICION ADD CONSTRAINT RefT_BAJABIEN18 
+    FOREIGN KEY (COD_BAJA)
+    REFERENCES T_BAJABIEN(COD_BAJA)
+go
+
+
+/* 
+ * TABLE: T_AREA 
+ */
+
+ALTER TABLE T_AREA ADD CONSTRAINT RefT_LOCAL7 
+    FOREIGN KEY (COD_LOCAL)
+    REFERENCES T_LOCAL(COD_LOCAL)
+go
+
+
+/* 
+ * TABLE: T_BAJABIEN 
+ */
+
+ALTER TABLE T_BAJABIEN ADD CONSTRAINT RefT_BIEN15 
+    FOREIGN KEY (COD_BIEN)
+    REFERENCES T_BIEN(COD_BIEN)
+go
+
+
+/* 
+ * TABLE: T_BIEN 
+ */
+
+ALTER TABLE T_BIEN ADD CONSTRAINT RefT_FUNCIONARIO12 
+    FOREIGN KEY (COD_EMP)
+    REFERENCES T_FUNCIONARIO(COD_EMP)
+go
+
+ALTER TABLE T_BIEN ADD CONSTRAINT RefT_CUENTA14 
+    FOREIGN KEY (COD_CTA)
+    REFERENCES T_CUENTA(COD_CTA)
+go
+
+ALTER TABLE T_BIEN ADD CONSTRAINT RefT_TIPOBIEN20 
+    FOREIGN KEY (COD_TIPO_BIEN)
+    REFERENCES T_TIPOBIEN(COD_TIPO_BIEN)
+go
+
+
+/* 
+ * TABLE: T_BLOQUEO 
+ */
+
+ALTER TABLE T_BLOQUEO ADD CONSTRAINT RefT_BIEN17 
+    FOREIGN KEY (COD_BIEN)
+    REFERENCES T_BIEN(COD_BIEN)
+go
+
+
+/* 
+ * TABLE: T_FUNCIONARIO 
+ */
+
+ALTER TABLE T_FUNCIONARIO ADD CONSTRAINT RefT_OFICINA6 
+    FOREIGN KEY (COD_OFICINA)
+    REFERENCES T_OFICINA(COD_OFICINA)
+go
+
+
+/* 
+ * TABLE: T_LOCAL 
+ */
+
+ALTER TABLE T_LOCAL ADD CONSTRAINT RefT_ENTIDAD9 
+    FOREIGN KEY (COD_ENTIDAD)
+    REFERENCES T_ENTIDAD(COD_ENTIDAD)
+go
+
+ALTER TABLE T_LOCAL ADD CONSTRAINT RefT_UBIGEO22 
+    FOREIGN KEY (COD_UBIGEO)
+    REFERENCES T_UBIGEO(COD_UBIGEO)
+go
+
+
+/* 
+ * TABLE: T_OFICINA 
+ */
+
+ALTER TABLE T_OFICINA ADD CONSTRAINT RefT_AREA5 
+    FOREIGN KEY (COD_AREA)
+    REFERENCES T_AREA(COD_AREA)
+go
+
+

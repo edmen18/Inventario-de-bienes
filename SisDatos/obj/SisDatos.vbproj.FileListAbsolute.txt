@@ -1,0 +1,9 @@
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\bin\Debug\SisDatos.dll
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\bin\Debug\SisDatos.pdb
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\bin\Debug\SisDatos.xml
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\ResolveAssemblyReference.cache
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\SisDatos.Resources.resources
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\SisDatos.vbproj.GenerateResource.Cache
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\SisDatos.dll
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\SisDatos.xml
+D:\Mis Proyectos\Visual Net\2005\SIMIMUDIAR\SisDatos\obj\Debug\SisDatos.pdb
